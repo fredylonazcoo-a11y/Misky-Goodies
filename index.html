@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Misky Goodies - Pollo Broaster en Ayacucho</title>
+<meta name="description" content="Misky Goodies: Pollo Broaster Chacctado, Andino, Hot y Clásico en Ayacucho. Arma tu pedido y envíalo por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Misky Goodies - Pollo Broaster en Ayacucho">
+<meta property="og:description" content="Elige tu sabor: Chacctado, Andino, Hot o Clásico. Pide por WhatsApp y paga con Yape.">
+<!-- CAMBIA por tu URL real de GitHub Pages cuando la tengas (debe ser absoluta) -->
+<meta property="og:image" content="https://TU-USUARIO.github.io/TU-REPO/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFF9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍗%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFFF9;--gold:#E53935;--gold-ink:#B71C1C;--silver:#6f7b88;--ink:#1d1d1f;--card-bg:rgba(255,255,249,.55);--card-border:rgba(255,255,255,.45);--btn-main:#1d1d1f;--btn-main-text:#FFFFF9;--bar:rgba(255,255,249,.85);--line:rgba(0,0,0,.1);--safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0a0a0a;--gold-ink:#FF6B6B;--silver:#9CA6B2;--ink:#f5f5f7;--card-bg:rgba(20,20,22,.52);--card-border:rgba(255,255,255,.15);--btn-main:#f5f5f7;--btn-main-text:#1d1d1f;--bar:rgba(10,10,10,.85);--line:rgba(255,255,255,.12)}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Figtree',-apple-system,BlinkMacSystemFont,sans-serif;background:transparent;color:var(--ink);padding:0 16px calc(var(--safe-b) + 110px);line-height:1.4;position:relative;z-index:1}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg-zoom{position:absolute;inset:-5% -10%;background-image:radial-gradient(60% 38% at 12% 0%,rgba(229,57,53,.25),transparent 70%),radial-gradient(50% 40% at 90% 100%,rgba(255,193,7,.2),transparent 60%);animation:breathe 22s ease-in-out infinite alternate}
+@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.08)}}
+main{max-width:440px;margin:0 auto;display:grid;gap:16px}
+.glass{background:var(--card-bg);backdrop-filter:blur(32px) saturate(210%);-webkit-backdrop-filter:blur(32px) saturate(210%);border:1px solid var(--card-border);border-radius:28px;box-shadow:0 4px 30px rgba(0,0,0,.15),0 1px 0 rgba(255,255,255,.4) inset}
+header{display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(var(--safe-t) + 20px) 24px 20px;margin-top:12px}
+.badge{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:13px;font-weight:700;background:rgba(229,57,53,.12);color:var(--gold-ink);padding:6px 14px;border-radius:99px;border:1px solid rgba(229,57,53,.25)}
+.dot{width:8px;height:8px;border-radius:50%;background:currentColor;color:#ef4444;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 6px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.tabs{position:sticky;top:0;z-index:40;display:flex;gap:8px;overflow-x:auto;padding:calc(var(--safe-t) + 8px) 4px 8px;margin:0 -16px;padding-inline:16px;background:var(--bar);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--ink);font:700 14px inherit;font-family:inherit;text-decoration:none}
+.tab.on{background:var(--btn-main);color:var(--btn-main-text);border-color:var(--btn-main)}
+section{scroll-margin-top:70px}
+h2{font-size:18px;font-weight:800;margin-bottom:12px}
+.panel{padding:18px 20px;display:grid;gap:12px}
+.sabor{border-radius:20px;overflow:hidden;border:2px solid var(--line);display:grid}
+.ph{position:relative;aspect-ratio:4/3;display:grid;place-items:center;font-size:56px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:10px;left:10px;z-index:2;background:var(--gold);color:#fff;font-size:11px;font-weight:800;padding:4px 10px;border-radius:99px}
+.sb{padding:14px 16px 16px;display:grid;gap:8px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.nm{font-size:18px;font-weight:800;text-transform:uppercase}
+.pr{background:var(--btn-main);color:var(--btn-main-text);padding:6px 12px;border-radius:12px;font-weight:800;font-size:14px}
+.ds{font-size:13px;color:var(--silver)}
+.chip{display:inline-block;font-size:11px;font-weight:700;padding:4px 8px;border-radius:8px;background:rgba(229,57,53,.12)}
+label{font-size:12px;font-weight:700;color:var(--silver);display:grid;gap:4px}
+select,input,textarea{width:100%;font:600 15px inherit;font-family:inherit;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--card-bg);color:var(--ink)}
+textarea{resize:none;height:64px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--card-border);background:var(--card-bg);border-radius:20px;padding:15px 12px;font:700 15px inherit;font-family:inherit;color:var(--ink);text-decoration:none;cursor:pointer;width:100%;transition:transform .2s}
+.btn:active{transform:scale(.98)}
+.btn-main{background:var(--btn-main);color:var(--btn-main-text);border-color:var(--btn-main)}
+.btn-gold{background:var(--gold);color:#fff;border-color:var(--gold)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.item:last-child{border:0}
+.item b{font-size:14px}
+.sm{font-size:13px;font-weight:700}
+.add{width:auto;padding:8px 16px;font-size:14px}
+.cartbar{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:12px 16px calc(var(--safe-b) + 12px);background:var(--bar);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--line)}
+.cartbar>*{max-width:440px;margin:0 auto}
+.ov{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.3s}
+.ov.show{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:70;max-height:92vh;overflow-y:auto;background:var(--bg);border-radius:28px 28px 0 0;padding:20px 16px calc(var(--safe-b) + 20px);transform:translateY(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sheet.show{transform:none}
+.sheet>div{max-width:440px;margin:0 auto;display:grid;gap:14px}
+.step{display:flex;align-items:center;gap:10px}
+.step button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--card-bg);color:var(--ink);font:800 18px inherit;cursor:pointer}
+.yape{display:grid;gap:10px;padding:14px;border-radius:18px;border:1px dashed var(--gold);text-align:center;font-size:14px}
+.yape img{width:180px;max-width:100%;margin:0 auto;border-radius:12px}
+.tot{display:flex;justify-content:space-between;font-size:18px;font-weight:800}
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--btn-main);color:var(--btn-main-text);padding:12px 18px;border-radius:99px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:100;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%)}
+</style>
+</head>
+<body>
+<div class="bg"><div class="bg-zoom"></div></div>
+<main id="app"></main>
+<div class="cartbar" id="cartbar"></div>
+<div class="ov" id="ov" onclick="sheet(false)"></div>
+<div class="sheet" id="sheet"></div>
+<div class="toast" id="toast"></div>
+<script>
+const CONFIG={
+  telefono:"51930991715",yape:"944828484",
+  yapeQR:"img/yape-qr.png", // cuando tengas el QR, guárdalo con este nombre
+  horario:"Lunes a Domingo 6:00pm - 11:30pm",
+  abre:18,cierra:23.5,
+  direccion:"Jr Manco Capac N° 1313",
+  mapaUrl:"https://maps.app.goo.gl/YYEDCHPHFpjUTjtQA",
+  resenaUrl:"https://www.google.com/maps/place/Misky+Goodies/@-13.1545069,-74.2318322,225m/data=!3m1!1e3!4m8!3m7!1s0x91127d71c5a1cf7f:0xaceac2e1b6556b71!8m2!3d-13.1547623!4d-74.2319238!9m1!1b1!16s%2Fg%2F11s5d94gkv?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D",
+  tiktok:"https://www.tiktok.com/@miskygoodies",
+  promo:"" // ej: "🔥 Combo familiar: 3 broaster + gaseosa 1.5L por S/ 45" (vacío = no se muestra)
+};
+const SIDES=["Ensalada agridulce","Puré de manzana"];
+const BASE="02 pzas + papas crocantes + cremas + ensalada agridulce o puré de manzana";
+// badge: "Más pedido" / "Nuevo" (vacío = sin etiqueta) · img: foto del plato
+const SABORES=[
+ {id:"chacctado",n:"Chacctado",d:"Cubierto con deliciosa masa a base de maíz. "+BASE,t:"🌽 Masa de maíz - Dulce de chacra",c:"#FFC107",p:16.5,img:"img/chacctado.jpg",badge:""},
+ {id:"andino",n:"Andino",d:"Cubierto con deliciosa masa a base de quinua. "+BASE,t:"🌾 Masa de quinua - Andino nutritivo",c:"#8D6E63",p:16.5,img:"img/andino.jpg",badge:""},
+ {id:"hot",n:"Hot",d:"Cubierto con deliciosa masa clásica con un toque picante. "+BASE,t:"🌶️ Toque picante - Para valientes",c:"#E53935",p:16.5,img:"img/hot.jpg",badge:""},
+ {id:"clasico",n:"Clásico",d:"Cubierto con deliciosa masa especial Misky Goodies. "+BASE,t:"⭐ Receta secreta Misky",c:"#FF9800",p:16.5,img:"img/clasico.jpg",badge:""}
+];
+const JUNIOR={n:"Porción Junior",d:"1 pieza de pollo del sabor que elijas.",p:9.5,img:"img/junior.jpg",badge:""};
+const PICAR=[{n:"Salchipapas",p:8.5}];
+const ADIC=[{n:"Salchicha",p:3},{n:"Huevo",p:3},{n:"Porción de papa",p:6}];
+let cart=[];
+const $=id=>document.getElementById(id), S=n=>'S/ '+n.toFixed(2);
+
+function estado(){
+  const d=new Date(Date.now()+new Date().getTimezoneOffset()*60000-5*3600000);
+  const h=d.getHours()+d.getMinutes()/60, ab=h>=CONFIG.abre&&h<CONFIG.cierra;
+  return ab;
+}
+function actualizarEstado(){
+  const ab=estado(), dot=$('estado-dot'), txt=$('estado-text');
+  if(dot&&txt){txt.textContent=(ab?'Abierto ahora':'Cerrado ahora')+' · '+CONFIG.horario;dot.style.color=ab?'#22c55e':'#ef4444'}
+  renderCart();
+}
+const ph=(o,c)=>`<div class="ph" style="background:linear-gradient(135deg,${c}44,${c}11)">${o.badge?`<span class="tag">${o.badge}</span>`:''}🍗<img src="${o.img}" alt="${o.n}" loading="lazy" onerror="this.remove()"></div>`;
+const opts=a=>a.map(x=>`<option>${x}</option>`).join('');
+
+function render(){
+  $('app').innerHTML=`
+  <header class="glass">
+    <img src="Logo.svg" alt="Misky Goodies Logo" style="width:140px;max-width:100%;height:auto">
+    <div style="font-size:14px;font-weight:600;color:var(--silver);margin-top:4px">POLLO BROASTER EN AYACUCHO</div>
+    <div class="badge"><div class="dot" id="estado-dot"></div><span id="estado-text"></span></div>
+  </header>
+  ${CONFIG.promo?`<div class="glass" style="padding:14px 18px;font-weight:700;font-size:14px;text-align:center">${CONFIG.promo}</div>`:''}
+  <nav class="tabs" id="tabs">
+    <a class="tab on" href="#sec-broaster">🍗 Broaster</a><a class="tab" href="#sec-picar">🍟 Para picar</a><a class="tab" href="#sec-adic">➕ Adicionales</a><a class="tab" href="#sec-info">📍 Ubicación</a>
+  </nav>
+  <section id="sec-broaster" class="panel">
+    <h2>🍗 Elige tu sabor broaster</h2>
+    <p class="ds">Todos incluyen 02 piezas + papas crocantes + cremas + ensalada agridulce o puré. La diferencia está en la masa.</p>
+    ${SABORES.map(s=>`<div class="sabor" style="border-color:${s.c}55">${ph(s,s.c)}
+      <div class="sb"><div class="top"><div class="nm" style="color:${s.c}">${s.n}</div><div class="pr">${S(s.p)}</div></div>
+      <div class="ds">${s.d}</div><div><span class="chip">${s.t}</span></div>
+      <label>Acompañamiento<select id="side-${s.id}">${opts(SIDES)}</select></label>
+      <button class="btn btn-main" onclick="addBro('${s.id}')">Agregar ${s.n}</button></div></div>`).join('')}
+    <div class="sabor" style="border-color:var(--line)">${ph(JUNIOR,'#E53935')}
+      <div class="sb"><div class="top"><div class="nm">${JUNIOR.n}</div><div class="pr">${S(JUNIOR.p)}</div></div>
+      <div class="ds">${JUNIOR.d} Con papas y cremas.</div>
+      <label>Sabor<select id="jr-sabor">${opts(SABORES.map(s=>s.n))}</select></label>
+      <button class="btn btn-main" onclick="addJr()">Agregar Junior</button></div></div>
+  </section>
+  <section id="sec-picar" class="glass panel"><h2>🍟 Más para picar</h2>
+    ${PICAR.map(e=>row(e)).join('')}</section>
+  <section id="sec-adic" class="glass panel"><h2>➕ Adicionales</h2>
+    ${ADIC.map(e=>row(e)).join('')}</section>
+  <section id="sec-info" class="glass panel"><h2>📍 Ubicación y Horarios</h2>
+    <div style="font-size:14px;line-height:1.6"><b>${CONFIG.direccion}</b><br>${CONFIG.horario}<br><span style="color:var(--silver)">Pagos: Yape ${CONFIG.yape} - Efectivo</span></div>
+    <div class="grid2"><a class="btn btn-main" href="${CONFIG.mapaUrl}" target="_blank" rel="noopener">Cómo llegar</a><a class="btn btn-gold" href="${CONFIG.resenaUrl}" target="_blank" rel="noopener">⭐ Déjanos 5 estrellas</a></div>
+    <a class="btn" href="${CONFIG.tiktok}" target="_blank" rel="noopener">Ver TikTok</a></section>
+  <footer style="text-align:center;padding:8px 0 24px;display:grid;gap:6px">
+    <div style="font-size:13px;color:var(--silver)">Hecho con ❤️ para Misky Goodies · Carta digital</div>
+    <div style="font-size:12px;color:var(--silver)">© 2026 - Developed by <a id="fredy-link" href="#" target="_blank" rel="noopener" style="color:var(--ink);font-weight:800;text-decoration:underline">Fredy Lonazco</a></div>
+  </footer>`;
+  $('sheet').innerHTML=`<div>
+    <div class="top"><h2 style="margin:0">🧾 Tu pedido</h2><button class="btn" style="width:auto;padding:6px 14px" onclick="sheet(false)">✕</button></div>
+    <div id="items"></div>
+    <div class="tot"><span>Total</span><span id="total"></span></div>
+    <p class="ds">El costo de delivery (si aplica) se confirma por WhatsApp.</p>
+    <label>Tu nombre<input id="f-nom" autocomplete="name" placeholder="Ej: María"></label>
+    <label>¿Cómo lo quieres?<select id="f-tipo" onchange="tipo()"><option>Delivery</option><option>Recojo en local</option></select></label>
+    <label id="l-dir">Dirección y referencia<input id="f-dir" autocomplete="street-address" placeholder="Calle, número, referencia"></label>
+    <label>Método de pago<select id="f-pago" onchange="pago()"><option>Yape</option><option>Efectivo</option></select></label>
+    <div class="yape" id="yape"><div>Yapea al <b style="font-size:18px">${CONFIG.yape}</b><br><span style="color:var(--silver)">Misky Goodies</span></div>
+      <button class="btn" onclick="copiar()">📋 Copiar número</button>
+      <img src="${CONFIG.yapeQR}" alt="QR Yape" onerror="this.remove()">
+      <div class="ds">Envía la captura del pago por WhatsApp.</div></div>
+    <label>Notas (opcional)<textarea id="f-nota" placeholder="Sin ají, más cremas, etc."></textarea></label>
+    <button class="btn btn-gold" id="send" style="font-size:16px" onclick="enviar()"></button>
+  </div>`;
+  renderCart();actualizarEstado();pago();tipo();spy();
+  const fl=$('fredy-link');if(fl)fl.href=atob('aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9mcmVkeWNob3Iv');
+}
+const row=e=>`<div class="item"><span class="sm">${e.n}</span><div style="display:flex;gap:10px;align-items:center"><b>${S(e.p)}</b><button class="btn add" onclick="addItem('${e.n}','',${e.p})">+</button></div></div>`;
+
+function addItem(n,d,p){
+  const f=cart.find(c=>c.n===n&&c.d===d);
+  f?f.q++:cart.push({n,d,p,q:1});
+  aviso(n+' agregado');renderCart();
+}
+function addBro(id){const s=SABORES.find(x=>x.id===id);addItem('Pollo '+s.n,$('side-'+id).value,s.p)}
+function addJr(){addItem('Porción Junior',$('jr-sabor').value,JUNIOR.p)}
+function chg(i,v){cart[i].q+=v;if(cart[i].q<1)cart.splice(i,1);renderCart();if(!cart.length)sheet(false)}
+const total=()=>cart.reduce((a,c)=>a+c.p*c.q,0), cnt=()=>cart.reduce((a,c)=>a+c.q,0);
+
+function renderCart(){
+  const bar=$('cartbar');if(!bar)return;
+  if(!cart.length){bar.innerHTML='<div style="text-align:center;font-size:13px;color:var(--silver)">Tu carrito está vacío. Elige un sabor arriba 👆</div>';return}
+  const ab=estado();
+  bar.innerHTML=`<button class="btn btn-gold" style="font-size:16px;justify-content:space-between" onclick="sheet(true)"><span>🛒 Ver pedido (${cnt()})</span><span>${S(total())}</span></button>${ab?'':'<div class="ds" style="text-align:center;margin-top:6px">Cerrado ahora · puedes dejar tu pedido para hoy desde las 6pm</div>'}`;
+  if($('items')){
+    $('items').innerHTML=cart.map((c,i)=>`<div class="item"><div><div class="sm">${c.n}</div>${c.d?`<div class="ds">${c.d}</div>`:''}<div class="ds">${S(c.p*c.q)}</div></div><div class="step"><button onclick="chg(${i},-1)">−</button><b>${c.q}</b><button onclick="chg(${i},1)">+</button></div></div>`).join('');
+    $('total').textContent=S(total());
+    $('send').textContent=ab?'🟢 Enviar pedido por WhatsApp':'🕕 Pedir para hoy desde las 6pm';
+  }
+}
+function sheet(v){$('sheet').classList.toggle('show',v);$('ov').classList.toggle('show',v);document.body.style.overflow=v?'hidden':''}
+function tipo(){$('l-dir').style.display=$('f-tipo').value==='Delivery'?'grid':'none'}
+function pago(){$('yape').style.display=$('f-pago').value==='Yape'?'grid':'none'}
+function copiar(){
+  const ok=()=>aviso('Número copiado ✅');
+  if(navigator.clipboard)navigator.clipboard.writeText(CONFIG.yape).then(ok,()=>aviso('Número: '+CONFIG.yape));
+  else{const t=document.createElement('input');t.value=CONFIG.yape;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();ok()}
+}
+function enviar(){
+  const nom=$('f-nom').value.trim(),tp=$('f-tipo').value,dir=$('f-dir').value.trim(),pg=$('f-pago').value,nota=$('f-nota').value.trim();
+  if(!nom){aviso('Escribe tu nombre');$('f-nom').focus();return}
+  if(tp==='Delivery'&&!dir){aviso('Escribe tu dirección');$('f-dir').focus();return}
+  const L=['Hola Misky Goodies 🍗, quiero hacer un pedido:',''];
+  if(!estado())L.push('🕕 Pedido para hoy desde las 6:00pm','');
+  cart.forEach(c=>L.push(`• ${c.q}x ${c.n}${c.d?' ('+c.d+')':''} - ${S(c.p*c.q)}`));
+  L.push('',`💰 Total: ${S(total())}`,'',`👤 Nombre: ${nom}`,`🛵 ${tp}`);
+  if(tp==='Delivery')L.push(`📍 Dirección: ${dir}`);
+  L.push(`💳 Pago: ${pg}`);
+  if(nota)L.push(`📝 Notas: ${nota}`);
+  if(tp==='Delivery')L.push('','(Confirmen el costo de delivery, gracias)');
+  window.open(`https://wa.me/${CONFIG.telefono}?text=${encodeURIComponent(L.join('\n'))}`,'_blank');
+}
+function spy(){
+  const tabs=[...document.querySelectorAll('.tab')];
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)tabs.forEach(t=>t.classList.toggle('on',t.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('section').forEach(s=>io.observe(s));
+}
+function aviso(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+render();setInterval(actualizarEstado,60000);
+</script>
+</body>
+</html>
