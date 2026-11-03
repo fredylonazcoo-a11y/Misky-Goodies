@@ -9,7 +9,7 @@
 <meta property="og:title" content="Misky Goodies - Pollo Broaster en Ayacucho">
 <meta property="og:description" content="Elige tu sabor: Chacctado, Andino, Hot o Clásico. Pide por WhatsApp y paga con Yape.">
 <!-- CAMBIA por tu URL real de GitHub Pages cuando la tengas (debe ser absoluta) -->
-<meta property="og:image" content="https://misky-shop.pages.dev/img/og.jpg">
+<meta property="og:image" content="https://misky-shop.pages.dev/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFF9">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍗%3C/text%3E%3C/svg%3E">
@@ -20,8 +20,9 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--bg)}
 body{font-family:'Figtree',-apple-system,BlinkMacSystemFont,sans-serif;background:transparent;color:var(--ink);padding:0 16px calc(var(--safe-b) + 110px);line-height:1.4;position:relative;z-index:1}
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.bg-zoom{position:absolute;inset:-5% -10%;background-image:radial-gradient(60% 38% at 12% 0%,rgba(229,57,53,.25),transparent 70%),radial-gradient(50% 40% at 90% 100%,rgba(255,193,7,.2),transparent 60%);animation:breathe 22s ease-in-out infinite alternate}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:linear-gradient(180deg,#FFFFF9 0%,#FFF7E6 45%,#FFE9E9 100%)}
+@media (prefers-color-scheme:dark){.bg{background:linear-gradient(180deg,#0a0a0a 0%,#1a1111 100%)}}
+.bg-zoom{position:absolute;inset:-5% -10%;background-image:radial-gradient(60% 38% at 12% 0%,rgba(229,57,53,.22),transparent 70%),radial-gradient(50% 40% at 90% 100%,rgba(255,193,7,.18),transparent 60%);animation:breathe 22s ease-in-out infinite alternate}
 @keyframes breathe{from{transform:scale(1)}to{transform:scale(1.08)}}
 main{max-width:440px;margin:0 auto;display:grid;gap:16px}
 .glass{background:var(--card-bg);backdrop-filter:blur(32px) saturate(210%);-webkit-backdrop-filter:blur(32px) saturate(210%);border:1px solid var(--card-border);border-radius:28px;box-shadow:0 4px 30px rgba(0,0,0,.15),0 1px 0 rgba(255,255,255,.4) inset}
@@ -68,8 +69,11 @@ textarea{resize:none;height:64px}
 .sheet>div{max-width:440px;margin:0 auto;display:grid;gap:14px}
 .step{display:flex;align-items:center;gap:10px}
 .step button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--card-bg);color:var(--ink);font:800 18px inherit;cursor:pointer}
-.yape{display:grid;gap:10px;padding:14px;border-radius:18px;border:1px dashed var(--gold);text-align:center;font-size:14px}
-.yape img{width:180px;max-width:100%;margin:0 auto;border-radius:12px}
+.yape{display:grid;gap:12px;padding:16px;border-radius:20px;border:1px dashed var(--gold);background:var(--card-bg);text-align:center;font-size:14px}
+.yape-row{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+.yape-info{display:grid;gap:8px;text-align:left;min-width:160px}
+.yape img{width:160px;height:160px;object-fit:contain;margin:0 auto;border-radius:16px;background:#fff;padding:6px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.yape-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .tot{display:flex;justify-content:space-between;font-size:18px;font-weight:800}
 .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--btn-main);color:var(--btn-main-text);padding:12px 18px;border-radius:99px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:100;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%)}
@@ -85,7 +89,7 @@ textarea{resize:none;height:64px}
 <script>
 const CONFIG={
   telefono:"51930991715",yape:"944828484",
-  yapeQR:"img/yape-qr.png", // cuando tengas el QR, guárdalo con este nombre
+  yapeQR:"yape.jpg",
   horario:"Lunes a Domingo 6:00pm - 11:30pm",
   abre:18,cierra:23.5,
   direccion:"Jr Manco Capac N° 1313",
@@ -94,8 +98,8 @@ const CONFIG={
   tiktok:"https://www.tiktok.com/@miskygoodies",
   promo:"" // ej: "🔥 Combo familiar: 3 broaster + gaseosa 1.5L por S/ 45" (vacío = no se muestra)
 };
-const SIDES=["Ensalada agridulce","Puré de manzana"];
-const BASE="02 pzas + papas crocantes + cremas + ensalada agridulce o puré de manzana";
+const SIDES=["Ensalada agridulce"];
+const BASE="02 pzas + papas crocantes + cremas + ensalada agridulce";
 // badge: "Más pedido" / "Nuevo" (vacío = sin etiqueta) · img: foto del plato
 const SABORES=[
  {id:"chacctado",n:"Chacctado",d:"Cubierto con deliciosa masa a base de maíz. "+BASE,t:"🌽 Masa de maíz - Dulce de chacra",c:"#FFC107",p:16.5,img:"img/chacctado.jpg",badge:""},
@@ -108,7 +112,6 @@ const PICAR=[{n:"Salchipapas",p:8.5}];
 const ADIC=[{n:"Salchicha",p:3},{n:"Huevo",p:3},{n:"Porción de papa",p:6}];
 let cart=[];
 const $=id=>document.getElementById(id), S=n=>'S/ '+n.toFixed(2);
-
 function estado(){
   const d=new Date(Date.now()+new Date().getTimezoneOffset()*60000-5*3600000);
   const h=d.getHours()+d.getMinutes()/60, ab=h>=CONFIG.abre&&h<CONFIG.cierra;
@@ -121,11 +124,10 @@ function actualizarEstado(){
 }
 const ph=(o,c)=>`<div class="ph" style="background:linear-gradient(135deg,${c}44,${c}11)">${o.badge?`<span class="tag">${o.badge}</span>`:''}🍗<img src="${o.img}" alt="${o.n}" loading="lazy" onerror="this.remove()"></div>`;
 const opts=a=>a.map(x=>`<option>${x}</option>`).join('');
-
 function render(){
   $('app').innerHTML=`
   <header class="glass">
-    <img src="img/Logo.svg" alt="Misky Goodies Logo" style="width:140px;max-width:100%;height:auto">
+    <img src="Logo.svg" alt="Misky Goodies Logo" style="width:140px;max-width:100%;height:auto">
     <div style="font-size:14px;font-weight:600;color:var(--silver);margin-top:4px">POLLO BROASTER EN AYACUCHO</div>
     <div class="badge"><div class="dot" id="estado-dot"></div><span id="estado-text"></span></div>
   </header>
@@ -135,7 +137,7 @@ function render(){
   </nav>
   <section id="sec-broaster" class="panel">
     <h2>🍗 Elige tu sabor broaster</h2>
-    <p class="ds">Todos incluyen 02 piezas + papas crocantes + cremas + ensalada agridulce o puré. La diferencia está en la masa.</p>
+    <p class="ds">Todos incluyen 02 piezas + papas crocantes + cremas + ensalada agridulce. La diferencia está en la masa.</p>
     ${SABORES.map(s=>`<div class="sabor" style="border-color:${s.c}55">${ph(s,s.c)}
       <div class="sb"><div class="top"><div class="nm" style="color:${s.c}">${s.n}</div><div class="pr">${S(s.p)}</div></div>
       <div class="ds">${s.d}</div><div><span class="chip">${s.t}</span></div>
@@ -152,7 +154,13 @@ function render(){
   <section id="sec-adic" class="glass panel"><h2>➕ Adicionales</h2>
     ${ADIC.map(e=>row(e)).join('')}</section>
   <section id="sec-info" class="glass panel"><h2>📍 Ubicación y Horarios</h2>
-    <div style="font-size:14px;line-height:1.6"><b>${CONFIG.direccion}</b><br>${CONFIG.horario}<br><span style="color:var(--silver)">Pagos: Yape ${CONFIG.yape} - Efectivo</span></div>
+    <div style="font-size:14px;line-height:1.6"><b>${CONFIG.direccion}</b><br>${CONFIG.horario}</div>
+    <div style="display:flex;gap:12px;align-items:center;background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--card-border);border-radius:20px;padding:14px;box-shadow:0 4px 20px rgba(0,0,0,.08)">
+      <img src="${CONFIG.yapeQR}" alt="QR Yape" style="width:84px;height:84px;object-fit:contain;border-radius:14px;background:#fff;padding:5px;border:1px solid var(--line)" onerror="this.style.display='none'">
+      <div style="font-size:14px;line-height:1.4;flex:1"><b style="color:var(--ink)">Yape: ${CONFIG.yape}</b><br><span style="color:var(--silver);font-size:12px">Misky Goodies</span><br><a href="${CONFIG.yapeQR}" download="Yape-Misky-Goodies.jpg" style="font-size:12px;color:var(--gold);font-weight:700;text-decoration:none">⬇️ Descargar QR</a></div>
+      <button class="btn btn-main" style="width:auto;padding:10px 16px;font-size:13px;border-radius:99px" onclick="navigator.clipboard.writeText(CONFIG.yape).then(()=>aviso('Yape copiado'))">Copiar</button>
+    </div>
+    <div style="font-size:13px;color:var(--silver)">Pagos: Yape / Efectivo</div>
     <div class="grid2"><a class="btn btn-main" href="${CONFIG.mapaUrl}" target="_blank" rel="noopener">Cómo llegar</a><a class="btn btn-gold" href="${CONFIG.resenaUrl}" target="_blank" rel="noopener">⭐ Déjanos 5 estrellas</a></div>
     <a class="btn" href="${CONFIG.tiktok}" target="_blank" rel="noopener">Ver TikTok</a></section>
   <footer style="text-align:center;padding:8px 0 24px;display:grid;gap:6px">
@@ -168,10 +176,20 @@ function render(){
     <label>¿Cómo lo quieres?<select id="f-tipo" onchange="tipo()"><option>Delivery</option><option>Recojo en local</option></select></label>
     <label id="l-dir">Dirección y referencia<input id="f-dir" autocomplete="street-address" placeholder="Calle, número, referencia"></label>
     <label>Método de pago<select id="f-pago" onchange="pago()"><option>Yape</option><option>Efectivo</option></select></label>
-    <div class="yape" id="yape"><div>Yapea al <b style="font-size:18px">${CONFIG.yape}</b><br><span style="color:var(--silver)">Misky Goodies</span></div>
-      <button class="btn" onclick="copiar()">📋 Copiar número</button>
-      <img src="${CONFIG.yapeQR}" alt="QR Yape" onerror="this.remove()">
-      <div class="ds">Envía la captura del pago por WhatsApp.</div></div>
+    <div class="yape" id="yape">
+      <div class="yape-row">
+        <div class="yape-info">
+          <div>Yapea al<br><b style="font-size:22px;letter-spacing:1px">${CONFIG.yape}</b><br><span style="color:var(--silver)">Misky Goodies</span></div>
+          <div class="yape-actions">
+            <button class="btn" style="padding:10px 14px;font-size:13px;width:auto" onclick="copiar()">📋 Copiar</button>
+            <a class="btn" style="padding:10px 14px;font-size:13px;width:auto" href="${CONFIG.yapeQR}" download="Yape-Misky-Goodies.jpg">⬇️ Descargar QR</a>
+          </div>
+          <div class="ds">Envía la captura del pago por WhatsApp.</div>
+        </div>
+        <img src="${CONFIG.yapeQR}" alt="QR Yape Misky Goodies" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <div style="display:none;font-size:12px;color:var(--silver)">Coloca tu imagen como yape.jpg en la misma carpeta</div>
+      </div>
+    </div>
     <label>Notas (opcional)<textarea id="f-nota" placeholder="Sin ají, más cremas, etc."></textarea></label>
     <button class="btn btn-gold" id="send" style="font-size:16px" onclick="enviar()"></button>
   </div>`;
@@ -179,7 +197,6 @@ function render(){
   const fl=$('fredy-link');if(fl)fl.href=atob('aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9mcmVkeWNob3Iv');
 }
 const row=e=>`<div class="item"><span class="sm">${e.n}</span><div style="display:flex;gap:10px;align-items:center"><b>${S(e.p)}</b><button class="btn add" onclick="addItem('${e.n}','',${e.p})">+</button></div></div>`;
-
 function addItem(n,d,p){
   const f=cart.find(c=>c.n===n&&c.d===d);
   f?f.q++:cart.push({n,d,p,q:1});
@@ -189,7 +206,6 @@ function addBro(id){const s=SABORES.find(x=>x.id===id);addItem('Pollo '+s.n,$('s
 function addJr(){addItem('Porción Junior',$('jr-sabor').value,JUNIOR.p)}
 function chg(i,v){cart[i].q+=v;if(cart[i].q<1)cart.splice(i,1);renderCart();if(!cart.length)sheet(false)}
 const total=()=>cart.reduce((a,c)=>a+c.p*c.q,0), cnt=()=>cart.reduce((a,c)=>a+c.q,0);
-
 function renderCart(){
   const bar=$('cartbar');if(!bar)return;
   if(!cart.length){bar.innerHTML='<div style="text-align:center;font-size:13px;color:var(--silver)">Tu carrito está vacío. Elige un sabor arriba 👆</div>';return}
